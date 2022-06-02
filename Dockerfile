@@ -29,8 +29,8 @@ RUN CONFIG="\
         --with-http_ssl_module \
         --sbin-path=/usr/sbin/nginx \
         --with-http_stub_status_module \
-		--conf-path=/etc/nginx/nginx.conf \
-		--modules-path=/usr/lib/nginx/modules \
+        --conf-path=/etc/nginx/nginx.conf \
+        --modules-path=/usr/lib/nginx/modules \
         --error-log-path=/workspace/logs/error.log \
         --http-log-path=/workspace/logs/access.log \
         --add-module=/usr/src/nginx-upload-module-$UPLOAD_MODULE_VERSION \
