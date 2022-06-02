@@ -36,18 +36,18 @@ RUN CONFIG="\
         --add-module=/usr/src/nginx-upload-module-$UPLOAD_MODULE_VERSION \
     " \
     && curl -fSL https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -o nginx.tar.gz \
-	&& mkdir -p /usr/src \
-	&& tar -zxC /usr/src -f nginx.tar.gz \
-	&& rm -rf nginx.tar.gz \
-	&& cd /usr/src/nginx-$NGINX_VERSION \
-	&& curl -fSL https://github.com/fdintino/nginx-upload-module/archive/$UPLOAD_MODULE_VERSION.tar.gz -o /usr/src/nginx_upload.tar.gz \
-	&& tar xvzf /usr/src/nginx_upload.tar.gz -C /usr/src/ \
+    && mkdir -p /usr/src \
+    && tar -zxC /usr/src -f nginx.tar.gz \
+    && rm -rf nginx.tar.gz \
+    && cd /usr/src/nginx-$NGINX_VERSION \
+    && curl -fSL https://github.com/fdintino/nginx-upload-module/archive/$UPLOAD_MODULE_VERSION.tar.gz -o /usr/src/nginx_upload.tar.gz \
+    && tar xvzf /usr/src/nginx_upload.tar.gz -C /usr/src/ \
     && rm -rf nginx_upload.tar.gz /usr/src/nginx_upload.tar.gz \
-	&& ./configure $CONFIG --with-debug \
+    && ./configure $CONFIG --with-debug \
     && make \
     && make install \
     && mkdir /etc/nginx/conf.d/ \
-	&& mkdir -p /usr/share/nginx/html/ \
+    && mkdir -p /usr/share/nginx/html/ \
     && ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
     && cp objs/nginx /usr/local/bin/
 
